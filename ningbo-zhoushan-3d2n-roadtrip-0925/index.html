@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上海 ⇄ 舟山 ⇄ 奉化 · 3天2晚中秋自驾行程单</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f4f7fa;
+    color: #1c2b38;
+    line-height: 1.7;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  /* ---------- Header ---------- */
+  .hero {
+    background: linear-gradient(135deg, #0e6ba8 0%, #14919b 55%, #16a3a3 100%);
+    border-radius: 18px;
+    padding: 34px 34px 30px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(14, 107, 168, .18);
+  }
+  .hero h1 { font-size: 27px; letter-spacing: .5px; font-weight: 700; }
+  .hero .sub { margin-top: 10px; font-size: 14.5px; opacity: .93; }
+  .chips { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 9px; }
+  .chip {
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.32);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ---------- Alert cards ---------- */
+  .alerts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 20px; }
+  .alert {
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 13.6px;
+    border-left: 5px solid;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(28,43,56,.06);
+  }
+  .alert h3 { font-size: 14.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 7px; }
+  .alert p { color: #44586b; }
+  .alert.a1 { border-color: #e8703a; }
+  .alert.a2 { border-color: #d94a5c; }
+  .alert.a3 { border-color: #0e6ba8; }
+
+  /* ---------- Section ---------- */
+  section { margin-top: 34px; }
+  h2.sec {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0d3b56;
+    padding-left: 13px;
+    border-left: 5px solid #14919b;
+    margin-bottom: 16px;
+  }
+  h2.sec span { font-size: 13px; font-weight: 400; color: #7b8fa1; margin-left: 9px; }
+
+  /* ---------- Day card ---------- */
+  .day {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(28,43,56,.07);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .day-head {
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e8eef4;
+  }
+  .day-head .d-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    padding: 4px 11px;
+    border-radius: 7px;
+    background: #e6f4f7;
+    color: #0e6ba8;
+  }
+  .day-head .d-title { font-size: 16.5px; font-weight: 700; color: #14384f; flex: 1; }
+  .day-head .d-km { font-size: 12.5px; color: #7b8fa1; background: #f2f6f9; padding: 4px 11px; border-radius: 7px; }
+  .day-body { padding: 6px 10px 14px; }
+
+  table.tl { width: 100%; border-collapse: collapse; font-size: 13.6px; }
+  table.tl th {
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: .6px;
+    color: #7b8fa1;
+    font-weight: 600;
+    padding: 10px 12px 6px;
+    border-bottom: 1px solid #eef3f7;
+  }
+  table.tl td { padding: 10px 12px; border-bottom: 1px solid #f2f6f9; vertical-align: top; }
+  table.tl tr:last-child td { border-bottom: none; }
+  td.time { white-space: nowrap; font-weight: 700; color: #0e6ba8; font-variant-numeric: tabular-nums; }
+  td.act { font-weight: 600; color: #1c2b38; }
+  td.note { color: #5d7284; font-size: 13px; }
+  .hl { background: #fffbef; }
+  .hl td { border-bottom-color: #f7eccd !important; }
+  .tag {
+    display: inline-block;
+    font-size: 11.5px;
+    padding: 1.5px 8px;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-weight: 600;
+    vertical-align: 1px;
+  }
+  .t-red { background: #fdecee; color: #c0334a; }
+  .t-blue { background: #e8f2fb; color: #0e6ba8; }
+  .t-green { background: #e7f6ee; color: #1e7a4d; }
+  .t-orange { background: #fdf0e6; color: #c2632a; }
+
+  .waypts {
+    margin: 4px 12px 10px;
+    padding: 11px 14px;
+    background: #f7fbfc;
+    border: 1px dashed #cde3e8;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #3d5a6b;
+    line-height: 1.95;
+  }
+  .waypts b { color: #0e6ba8; }
+
+  /* ---------- Generic tables ---------- */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(28,43,56,.07);
+    padding: 6px 10px 12px;
+    overflow-x: auto;
+  }
+  table.data { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 520px; }
+  table.data th {
+    text-align: left; padding: 11px 14px; font-size: 12px; letter-spacing: .5px;
+    color: #7b8fa1; font-weight: 600; border-bottom: 1px solid #eef3f7; white-space: nowrap;
+  }
+  table.data td { padding: 10px 14px; border-bottom: 1px solid #f2f6f9; }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.data tr.total td { font-weight: 700; background: #f7fbfc; color: #0d3b56; }
+  table.data td strong { color: #0d3b56; }
+
+  /* ---------- Tips ---------- */
+  .tips { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .tip {
+    background: #fff; border-radius: 14px; padding: 16px 18px;
+    box-shadow: 0 2px 10px rgba(28,43,56,.06);
+    border-top: 3px solid #14919b;
+  }
+  .tip h4 { font-size: 14px; color: #0d3b56; margin-bottom: 9px; }
+  .tip ul { list-style: none; }
+  .tip li { font-size: 13.3px; color: #4a6072; padding-left: 16px; position: relative; margin-bottom: 7px; }
+  .tip li::before {
+    content: ""; position: absolute; left: 3px; top: 9px;
+    width: 5px; height: 5px; border-radius: 50%; background: #14919b;
+  }
+  .tip.warn { border-top-color: #e8703a; }
+  .tip.warn li::before { background: #e8703a; }
+  .tip.kid { border-top-color: #7a5ec4; }
+  .tip.kid li::before { background: #7a5ec4; }
+
+  /* ---------- Plan B ---------- */
+  .planb {
+    background: #fff; border-radius: 16px; padding: 20px 22px;
+    box-shadow: 0 3px 14px rgba(28,43,56,.07);
+  }
+  .planb .pb-item { padding: 13px 0; border-bottom: 1px dashed #e8eef4; }
+  .planb .pb-item:last-child { border-bottom: none; }
+  .planb h4 { font-size: 14.5px; color: #0e6ba8; margin-bottom: 5px; }
+  .planb p { font-size: 13.4px; color: #55697b; }
+  .planb .verdict { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 6px; margin-left: 7px; }
+  .v-yes { background: #e7f6ee; color: #1e7a4d; }
+  .v-warn { background: #fdf0e6; color: #c2632a; }
+
+  footer {
+    margin-top: 40px; text-align: center; font-size: 12.5px; color: #93a6b6;
+    line-height: 2;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .day, .card, .tip, .planb, .hero, .alert { box-shadow: none; border: 1px solid #dde6ed; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>上海 ⇄ 舟山 ⇄ 奉化 · 3天2晚自驾行程单</h1>
+    <div class="sub">2 大 1 小 ｜ 9月25日（五）— 9月27日（日） ｜ 全程自驾 ｜ 总里程约 900 km</div>
+    <div class="chips">
+      <span class="chip">☁️ 云顶仙乡·云顶公路</span>
+      <span class="chip">⛰️ 朱家尖大青山</span>
+      <span class="chip">🏘️ 奉化岩头古村</span>
+      <span class="chip">🌄 马目山风车收尾（日落可选）</span>
+    </div>
+  </div>
+
+  <div class="alerts">
+    <div class="alert a1">
+      <h3>📍 先修正一个地理认知</h3>
+      <p><strong>云顶仙乡和大青山都在舟山，不在宁波。</strong>云顶仙乡属舟山市定海区，大青山在舟山朱家尖岛南端。真正的动线是「上海 → 舟山 → 奉化 → 上海」，奉化那晚是回程落脚点，不是第二目的地。</p>
+    </div>
+    <div class="alert a2">
+      <h3>🎑 这三天正好是中秋小长假</h3>
+      <p>9月25—27日为 2026 年中秋假期（国务院已公布）。<strong>中秋高速不免费</strong>（免费仅限春节/清明/劳动节/国庆），舟山跨海大桥单程 110 元。9/25 是出城高峰、9/27 是返程高峰，两头都要打提前量。</p>
+    </div>
+    <div class="alert a3">
+      <h3>⏰ 返程红线：27日 12:00</h3>
+      <p>奉化 → 上海实测 197 分钟（约 3 小时 20 分），叠加假期返程流需按 4 小时算。<strong>27 日 12:00 前必须从奉化出发</strong>，才能在 17:00 前到上海。上午的游玩窗口只有约 3 小时。</p>
+    </div>
+  </div>
+
+  <!-- ============ D1 ============ -->
+  <section>
+    <h2 class="sec">Day 1 ｜ 9月25日（周五）<span>上海 → 舟山定海 → 云顶仙乡 → 马目山</span></h2>
+    <div class="day">
+      <div class="day-head">
+        <span class="d-tag">DAY 1</span>
+        <span class="d-title">跨海进岛 · 酒店休整 · 云顶公路自东向西 · 马目山收尾</span>
+        <span class="d-km">约 390 km</span>
+      </div>
+      <div class="day-body">
+        <table class="tl">
+          <thead><tr><th style="width:96px">时间</th><th style="width:30%">安排</th><th>说明 · 导航 · 备注</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="time">06:10</td>
+              <td class="act">出门前最后确认</td>
+              <td class="note">行李、饮用水、零食、晕车贴、防风外套已于<strong>前一天全部装车</strong>，本环节只确认胎压、ETC 余额、玻璃水三项。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">06:30</td>
+              <td class="act">上海出发 <span class="tag t-red">准时</span></td>
+              <td class="note">导航「舟山环球酒店」。路线：G60沪昆 / S32 → G15沈海 → <strong>杭州湾跨海大桥</strong> → G9221杭绍甬高速 → <strong>金塘大桥</strong> → G9211甬舟高速 → 舟山本岛。假期首日务必早走，7 点后出城流量陡增。</td>
+            </tr>
+            <tr>
+              <td class="time">08:00<br>—08:20</td>
+              <td class="act">服务区休息</td>
+              <td class="note">嘉兴 / 杭州湾新区服务区，加油+如厕。<strong>顺手把水和零食补齐</strong>——云顶公路部分路段没有便利店。</td>
+            </tr>
+            <tr>
+              <td class="time">10:30</td>
+              <td class="act">过金塘大桥进岛</td>
+              <td class="note">进入定海区（岑港/双桥一带），上海段全程约 3.5–4 小时。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">11:00<br>—12:20</td>
+              <td class="act">抵酒店休整 <span class="tag t-blue">新增</span></td>
+              <td class="note">舟山环球酒店 · 定海区千岛街道海城路 198 号 <span style="color:#7b8fa1">(29.9947, 122.2089)</span>。约 11:00 抵达。<strong>酒店标准入住为 14:00，中午通常拿不到房卡</strong>——建议提前致电申请早入住（视房态），否则先寄存行李，在大堂或餐厅缓一缓、洗把脸。</td>
+            </tr>
+            <tr>
+              <td class="time">12:20<br>—13:00</td>
+              <td class="act">午餐 · 就近解决</td>
+              <td class="note">不跑远，一碗海鲜面最快也最地道（人均 25–35 元）。详见下方「餐饮推荐」。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">13:00</td>
+              <td class="act">出发 → 云顶仙乡 <span class="tag t-blue">起跑</span></td>
+              <td class="note">导航「云顶仙乡」，从<strong>东段（白泉 / 昌国方向）进入</strong>，一路向西，把最西端的马目山留作终点。约 30 分钟进入云顶公路。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="waypts">
+          <b>云顶公路动线（自东向西，马目山收尾）：</b><br>
+          <b>云顶问茶</b>（海拔 478 m · 百亩茶园随山脊铺展，常有云海）→ <b>拱琼台</b>（心形草坪，新晋地标）→ <b>宵彩峰</b>（海拔 451 m，本地人称「舟山秋名山」）→ <b>狮子岩</b>（天然豁口，远眺宁波北仑）→ <b>仰天碗</b>（海拔约 380 m，俯瞰定海半城半海）→ <b>马目山风车公路</b>（本岛最西端 · 16 座风车 · 舟岱大桥，收尾点位 · 日落可选）<br>
+          <span style="color:#7b8fa1">※ 全程约 43.9 km，观景台与停车全部免费、无需预约。<strong>时间紧就保三个重点：云顶问茶、拱琼台、仰天碗</strong>，其余路过看即可。</span>
+        </div>
+        <table class="tl">
+          <thead><tr><th style="width:96px">时间</th><th style="width:30%">安排</th><th>说明 · 导航 · 备注</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="time">13:30<br>—16:30</td>
+              <td class="act">云顶公路沿线打卡</td>
+              <td class="note">约 3 小时，含中段车程（盘山路，实际车速慢）。<strong>日落不再是硬指标后，这里可以走全</strong>——云顶问茶不必砍，每个点位留 20–25 分钟。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">16:30<br>—17:20</td>
+              <td class="act">仰天碗 → 马目山</td>
+              <td class="note">云顶公路西段，约 25–30 km，预留 45–50 分钟。导航搜「马目风车营地」。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">17:20<br>—17:50</td>
+              <td class="act">马目山收尾 <span class="tag t-orange">日落可选</span></td>
+              <td class="note">本岛最西端，16 座风车 + 远眺舟岱大桥。<strong>9/25 日落 17:47</strong>——顺路赶上就是加分，赶不上也不亏（黄昏光线同样好看）。<strong>无论是否等到日落，17:50 前必须启动下山。</strong></td>
+            </tr>
+            <tr>
+              <td class="time">17:50</td>
+              <td class="act">下山 → 晚餐 <span class="tag t-blue">趁暮光</span></td>
+              <td class="note">约 40–50 分钟回到城区。<strong>17:50 下山意味着能在暮光里走完大半程</strong>——云顶公路夜间无路灯，这是本次松绑最大的收益。若坚持守到日落（约 18:20 下山），就要接受 40 分钟全黑山路。</td>
+            </tr>
+            <tr>
+              <td class="time">19:00<br>—20:00</td>
+              <td class="act">晚餐 · 海鲜排档</td>
+              <td class="note">就近选临城 / 新城一带的排档（离酒店约 800 m – 1.8 km，普遍营业到凌晨）。详见下方「餐饮推荐」。</td>
+            </tr>
+            <tr>
+              <td class="time">20:15</td>
+              <td class="act">回酒店休息</td>
+              <td class="note">比原方案早约 15 分钟收工。酒店有室内泳池与行政酒廊，孩子可以放松一下。明天 08:00 出发去大青山。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ D2 ============ -->
+  <section>
+    <h2 class="sec">Day 2 ｜ 9月26日（周六）<span>舟山新城 → 朱家尖大青山 → 宁波奉化</span></h2>
+    <div class="day">
+      <div class="day-head">
+        <span class="d-tag">DAY 2</span>
+        <span class="d-title">大青山环岛公路 + 跨海转场奉化</span>
+        <span class="d-km">约 250 km</span>
+      </div>
+      <div class="day-body">
+        <table class="tl">
+          <thead><tr><th style="width:96px">时间</th><th style="width:30%">安排</th><th>说明 · 导航 · 备注</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="time">07:30</td>
+              <td class="act">酒店早餐</td>
+              <td class="note">吃饱，今天上午要环岛自驾 + 少量步行。</td>
+            </tr>
+            <tr>
+              <td class="time">08:00</td>
+              <td class="act">退房出发 → 朱家尖</td>
+              <td class="note">约 30 km / 40–50 分钟，过朱家尖跨海大桥。导航「朱家尖大青山景区」。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">08:50<br>—13:30</td>
+              <td class="act">大青山国家公园 <span class="tag t-orange">大半天</span></td>
+              <td class="note">门票旺季 <strong>100 元/人</strong>（1.2–1.5 m 半价，1.2 m 以下免票）。9 座以下私家车可直接驶入，各观景台免费停车。入园 06:30–18:00，<strong>16:15 停止检票</strong>。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="waypts">
+          <b>园区推荐动线（18 km 单向环岛公路，限速 30 km/h）：</b><br>
+          景区正门（梓岙门岗）→ <b>四季花海</b>（风车+草坪）→ <b>里沙生态园</b> → <b>里沙海滨浴场</b>（人少沙细）→ <b>牛头山观景台</b>（俯瞰「五沙连环」全岛海景）→ <b>猫跳观景台</b>（紧邻海蚀礁石）→ <b>筲箕湾渔村</b>（原生态石屋渔港）→ 换乘景区免费小巴登 <b>青山峰</b>（海拔 378.6 m，360° 俯瞰群岛）<br>
+          <span style="color:#7b8fa1">※ 环岛公路单向行驶，<strong>错过观景台没有掉头口</strong>，提前减速、看清指示牌。私家车无法直达青山峰顶，必须换乘景区小巴（08:00–16:30，整点发车）。</span>
+        </div>
+        <table class="tl">
+          <tbody>
+            <tr>
+              <td class="time">13:30<br>—14:30</td>
+              <td class="act">午餐 · 大洞岙集镇</td>
+              <td class="note">建议出景区到集镇吃——景区内餐饮少、价格偏高。推荐海鲜炒米面、萝卜丝虾饼、鱼丸，明码标价。避开路边主动拉客的排档。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">14:45</td>
+              <td class="act">出发 → 奉化 <span class="tag t-red">转场</span></td>
+              <td class="note">约 200 km / 2.5–3 小时。路线：朱家尖 → 舟山本岛 → G9211甬舟高速 → 金塘大桥 → G1504宁波绕城 → G1512甬金高速 → 奉化。</td>
+            </tr>
+            <tr>
+              <td class="time">18:00</td>
+              <td class="act">入住奉化开元名庭</td>
+              <td class="note">宁波印象奉化开元名庭酒店 · 奉化区锦屏街道大成路 728 号。紧邻印象奉化商业广场，自带儿童乐园。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">19:00</td>
+              <td class="act">晚餐 · 奉化十碗 <span class="tag t-orange">当地特色</span></td>
+              <td class="note"><strong>奉城家宴（印象奉化店）</strong>· 大成路 666 号印象奉化——和你酒店同属一个「印象奉化」综合体，<strong>步行可达，不用再动车</strong>。奉化区文旅局认定的「奉化十碗」官方体验餐厅，人均约 102 元，营业至 20:30。详见下方「餐饮推荐」。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ D3 ============ -->
+  <section>
+    <h2 class="sec">Day 3 ｜ 9月27日（周日）<span>奉化岩头古村 → 返沪</span></h2>
+    <div class="day">
+      <div class="day-head">
+        <span class="d-tag">DAY 3</span>
+        <span class="d-title">600 年古村晨游 + 中线返程</span>
+        <span class="d-km">约 275 km</span>
+      </div>
+      <div class="day-body">
+        <table class="tl">
+          <thead><tr><th style="width:96px">时间</th><th style="width:30%">安排</th><th>说明 · 导航 · 备注</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="time">07:00</td>
+              <td class="act">早餐、退房</td>
+              <td class="note">行李全部上车，今天不再回酒店。</td>
+            </tr>
+            <tr>
+              <td class="time">07:30</td>
+              <td class="act">出发 → 岩头古村</td>
+              <td class="note">约 25 km / 35–40 分钟，途经溪口镇。导航「岩头古村游客中心停车场」——小型车免费、车位充足，切勿路边乱停。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">08:10<br>—10:40</td>
+              <td class="act">岩头古村 <span class="tag t-green">免费</span></td>
+              <td class="note">溪口镇西南、剡溪上游支流「岩溪」穿村而过，600 余年民国古村。<strong>古村街区免费开放</strong>，清晨人少最出片。留 2.5 小时，为午市牛肉面腾出排队余量。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="waypts">
+          <b>古村精华路线（约 2.5–3 小时，全程平缓）：</b><br>
+          <b>广济桥</b>（村口石拱桥，古村地标）→ 毛福梅故居 → 毛邦初故居 → 灵泉古井 → <b>岩溪古街</b>（白墙黑瓦、石板路沿溪）→ <b>象鼻山观景台</b>（俯瞰全村）<br>
+          <span style="color:#7b8fa1">※ 石板路较多，穿平底鞋。村内有溪鱼现捞的农家乐，可在溪边坐一坐。</span>
+        </div>
+        <table class="tl">
+          <tbody>
+            <tr>
+              <td class="time">10:45</td>
+              <td class="act">转场 → 溪口镇</td>
+              <td class="note">约 11–13 km，15–20 分钟。溪口经堂北路一带是本地人公认的「弄堂美食天花板」。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">11:00<br>—11:50</td>
+              <td class="act">午餐 · 奉化牛肉干面 <span class="tag t-orange">必吃</span></td>
+              <td class="note"><strong>溪口阿峰牛肉干面</strong>（经堂北路 97 号，溪口人气最旺）或 <strong>兄弟牛肉面</strong>（中兴中路 255 号）。吃完直接从溪口上甬金高速，一步不绕。详见下方「餐饮推荐」。</td>
+            </tr>
+            <tr class="hl">
+              <td class="time">12:00</td>
+              <td class="act">出发返沪 <span class="tag t-red">红线</span></td>
+              <td class="note">从溪口上 G1512 甬金高速（不用回奉化城区，省约 30 分钟）。路线：甬金高速 → 宁波绕城 → G15沈海高速 → <strong>杭州湾跨海大桥</strong> → G60沪昆高速 → 上海。</td>
+            </tr>
+            <tr>
+              <td class="time">16:30</td>
+              <td class="act">抵达上海 <span class="tag t-blue">目标</span></td>
+              <td class="note">约 250 km。常规 3.5–4 小时；27 日是假期末日，杭州湾跨海大桥易缓行，17:00 前到达留有余量。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 餐饮 ============ -->
+  <section>
+    <h2 class="sec">餐饮推荐<span>D1 定海 · D2 奉化特色菜 · D3 奉化牛肉干面</span></h2>
+
+    <div class="planb" style="margin-bottom:18px">
+      <div class="pb-item">
+        <h4>午餐（12:20–13:00）· 就近吃，别跑远</h4>
+        <p>下午还有 43.9 km 盘山路，午餐以「快」为先。<strong>首选一碗海鲜面</strong>：面条配梭子蟹/虾/贝类现煮，奶白浓汤料足，人均 25–35 元，本就是舟山人的日常。酒店周边宝龙广场、凯虹广场、银泰餐饮密集，就近解决即可。</p>
+      </div>
+      <div class="pb-item">
+        <h4>午餐升级选项 · 改去定海古城吃 <span class="verdict v-yes">日落松绑后才成立</span></h4>
+        <p>把午餐挪到定海古城（中大街 / 西大街），顺手把这座千年古城逛了——<strong>这半小时余量原来是留给「追日落」的，现在拿得出来</strong>。动线：11:00 到酒店寄存行李 → 11:30 出发（约 20 分钟）→ 在中大街吃<strong>阿宝海鲜面</strong>（开了三十多年，被称作定海海鲜面「天花板」），再买一块<strong>瑞和糕饼</strong>（始创 1870 年）的条子糕或西大街路口的<strong>海棠糕</strong> → <strong>13:00 从古城直接出发去云顶仙乡</strong>（约 20 分钟），比折回酒店再出发更顺。</p>
+      </div>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:0 0 10px 3px">晚餐 · 首选：临城一带（离酒店最近，看完日落直接开过去）</div>
+    <div class="card" style="margin-bottom:18px">
+      <table class="data">
+        <thead><tr><th>餐厅</th><th>位置</th><th>人均</th><th>营业时间</th><th>亮点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>大眼排档</strong> <span class="tag t-green">离酒店最近</span></td>
+            <td>临城街道定沈路 530 号</td>
+            <td class="num">约 69 元</td>
+            <td class="num">17:00–02:00</td>
+            <td>距酒店约 800 m，看完日落回来最省事；营业到凌晨，不怕晚到</td>
+          </tr>
+          <tr>
+            <td><strong>波仔海鲜烧鸟排档</strong></td>
+            <td>临城街道菜场路 90-92 号</td>
+            <td class="num">约 79 元</td>
+            <td class="num">09:00–24:00</td>
+            <td>评分 4.3，蟹骨酱与红烧肉被反复点名</td>
+          </tr>
+          <tr>
+            <td><strong>川来湘 · 平价小海鲜排档</strong></td>
+            <td>千岛街道体育路 69 号（舟山体育馆南侧海鲜烧烤夜市街）</td>
+            <td class="num">约 101 元</td>
+            <td class="num">16:00–02:00</td>
+            <td>与酒店同属千岛街道，夜市氛围，主打平价小海鲜</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:0 0 10px 3px">晚餐 · 备选：定海老城夜排档（更地道，人均更低）</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>餐厅</th><th>位置</th><th>人均</th><th>营业时间</th><th>亮点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>定海长拐夜排档 10 号</strong></td>
+            <td>定海港码头 1 号 · 千岛海鲜美食广场</td>
+            <td class="num">约 52 元</td>
+            <td class="num">16:30–24:00</td>
+            <td>整个广场 60 多家排档一字排开的其中一家，全表最低价档</td>
+          </tr>
+          <tr>
+            <td><strong>25 号海宴会海鲜大排档</strong></td>
+            <td>卫海路 · 千岛美食广场 53 号</td>
+            <td class="num">约 53 元</td>
+            <td class="num">10:00–24:00</td>
+            <td>评分 4.3，老板娘热情，明码标价</td>
+          </tr>
+          <tr>
+            <td><strong>虎山小厨</strong> <span class="tag t-orange">夜宵顶流</span></td>
+            <td>昌国街道东大街 108 号</td>
+            <td class="num">约 60 元</td>
+            <td class="num">只做晚市</td>
+            <td>门口一条街全是水产店，明档点菜看得见新鲜；醉虾、螺丝鸡爪是招牌</td>
+          </tr>
+          <tr>
+            <td><strong>高佳庄 · 海鲜酒楼（临城百合店）</strong></td>
+            <td>千岛路 111 号喜来登花园酒店内</td>
+            <td class="num">约 144 元</td>
+            <td class="num">11:00–13:30<br>17:00–20:30</td>
+            <td>想吃得正式些就选它：明码标价不易被宰，酱烤带鱼、清蒸大黄鱼是本地老牌做法</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="waypts" style="margin-top:16px">
+      <b>点菜避坑三条（本地人共识）：</b>① 标「时价」的菜，点之前先问清明细，<strong>让店家当面称重</strong>；② 优先选明码标价的店，避开路边主动拉客的排档；③ 老城排档集中在定海港码头的千岛海鲜美食广场，若不想绕路，就近选临城那三家即可。<br>
+      <span style="color:#7b8fa1">※ 中秋假期排档易排队，建议上山前先电话订位。大眼排档 18967232023 ｜ 长拐夜排档 10 号 13906806662 ｜ 25 号海宴会 18606801178。假期营业时间可能调整，去前确认一下。</span>
+    </div>
+
+    <div style="font-size:15.5px;font-weight:700;color:#0d3b56;margin:30px 0 10px 3px;padding-left:11px;border-left:4px solid #e8703a">Day 2 晚餐 · 奉化当地特色菜（奉化十碗）</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>餐厅</th><th>位置</th><th>人均</th><th>营业时间</th><th>亮点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>奉城家宴（印象奉化店）</strong> <span class="tag t-green">首选</span></td>
+            <td>锦屏街道大成路 666 号印象奉化</td>
+            <td class="num">约 102 元</td>
+            <td class="num">09:00–13:30<br>16:00–20:30</td>
+            <td><strong>与你酒店同在一个「印象奉化」综合体，步行可达，晚饭不用再动车</strong>。奉化区文旅局认定的「奉化十碗」官方体验餐厅，一次吃齐咸齑黄鱼汤、酱烤猪头、笋干鲞烤肉、蟹酱芋艿头。电话 0574-88868888</td>
+          </tr>
+          <tr>
+            <td><strong>民镇食府 · 蒋家宴</strong></td>
+            <td>溪口镇百丈路 20 弄 2 幢 7-16 号</td>
+            <td class="num">约 109 元</td>
+            <td class="num">08:30–14:00<br>16:00–20:30</td>
+            <td>还原 1927 年蒋宋婚宴菜式（萧王庙芋艿头、剡溪大白鹅、溪口笋、野生大黄鱼），门面古色古香。<strong>代价：离酒店约 20 km，往返多约 40 分钟</strong></td>
+          </tr>
+          <tr>
+            <td><strong>裘忠</strong></td>
+            <td>岳林街道桃源路 18 号</td>
+            <td class="num">约 80 元</td>
+            <td class="num">—</td>
+            <td>城区性价比之选，呛蟹与奉化芋艿头口碑好</td>
+          </tr>
+          <tr>
+            <td><strong>阿华饭店</strong></td>
+            <td>南山路 185 号</td>
+            <td class="num">约 90 元</td>
+            <td class="num">—</td>
+            <td>本地接地气家常菜，红烧杂鱼、奉化牛肉干面都拿手</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="waypts" style="margin-top:14px">
+      <b>「奉化十碗」名单（点菜对照用）：</b>咸齑黄鱼汤 · 酱烤猪头 · 笋干鲞烤肉 · 奉式三鲜 · 贡品奉蚶 · 海鲜米豆腐 · 亭下湖红烧鱼头 · 九曲溪坑鱼 · 牛肉干面 · 蟹酱芋艿头。<br>
+      <span style="color:#7b8fa1">※ 奉化三宝是芋艿头、水蜜桃、千层饼；带回家的伴手礼优先溪口千层饼（苔菜味最经典，27 层酥皮）。</span>
+    </div>
+
+    <div style="font-size:15.5px;font-weight:700;color:#0d3b56;margin:30px 0 10px 3px;padding-left:11px;border-left:4px solid #e8703a">Day 3 中午 · 奉化牛肉干面（必吃）</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>店</th><th>位置</th><th>参考价</th><th>亮点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>溪口阿峰牛肉干面</strong> <span class="tag t-blue">当前方案</span></td>
+            <td>溪口镇经堂北路 97 号</td>
+            <td class="num">—</td>
+            <td>溪口人气最旺，现场现做，两间店面；雪菜笋丝鲜牛肉干面、鲜牛肉炒年糕。饭点排队，建议先点鸭爪垫肚子。<strong>吃完直接从溪口上甬金高速</strong></td>
+          </tr>
+          <tr>
+            <td><strong>兄弟牛肉面</strong></td>
+            <td>溪口镇中兴中路 255 号</td>
+            <td class="num">—</td>
+            <td>带汤牛肉干面与牛肉炒年糕都拿手，本地口碑稳，等位压力小于阿峰</td>
+          </tr>
+          <tr>
+            <td><strong>玉祥泰</strong></td>
+            <td>溪口古镇三里长街溪南桥旁</td>
+            <td class="num">—</td>
+            <td>奉化老底子美食集合：牛肉干面、米馒头、灰汁团一并尝到，适合边逛边吃</td>
+          </tr>
+          <tr>
+            <td><strong>斗门牛肉馆</strong> <span class="tag t-green">非遗</span></td>
+            <td>奉化区大成路 220-4 号</td>
+            <td class="num">—</td>
+            <td><strong>与你酒店同一条大成路，车程约 5–10 分钟</strong>。开了 20 多年，<strong>2017 年被评为奉化非物质文化遗产</strong>，牛舌/牛筋/牛肚等牛杂齐全。选它需回城区，多跑约 25 km</td>
+          </tr>
+          <tr>
+            <td><strong>蒋永峰小吃店 / 无名牛肉馆</strong></td>
+            <td>溪口镇经堂北路 36 号</td>
+            <td class="num">25–45 元</td>
+            <td>溪口名气最大的两家，但<strong>通常上午卖完就关门</strong>（无名每天限量 200 多碗，8 点就排队、9 点半抢光）——中午去大概率吃不到，别抱期待</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="waypts" style="margin-top:14px">
+      <b>怎么选：</b>① <strong>省时间为先</strong>：27 日上午在岩头古村，10:45 转到溪口镇吃 <strong>阿峰</strong> 或 <strong>兄弟</strong>，11:50 吃完直接上甬金高速，一步不绕；② <strong>打卡非遗名店</strong>：回奉化城区吃 <strong>斗门牛肉馆</strong>（就在你酒店那条大成路上），代价是多跑约 25 km、多花约 40 分钟，岩头古村需压到 2 小时。<br>
+      <span style="color:#7b8fa1">※ 「干面」不是面条，是泡发后的手工番薯粉丝，汤底靠牛骨加牛杂长时间熬制。点单说「牛肉干面」即可，可按需加牛杂；普通碗约 25 元、中碗 35 元、大碗 45 元。</span>
+    </div>
+  </section>
+
+  <!-- ============ 车程表 ============ -->
+  <section>
+    <h2 class="sec">路线与车程总表</h2>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>路段</th><th>里程</th><th>常规车程</th><th>要点</th></tr></thead>
+        <tbody>
+          <tr><td><strong>上海 → 舟山定海</strong></td><td class="num">约 270 km</td><td class="num">3.5–4 h</td><td>经杭州湾跨海大桥；舟山跨海大桥单程 110 元</td></tr>
+          <tr><td>云顶仙乡·云顶公路</td><td class="num">43.9 km</td><td class="num">半天（含打卡）</td><td>坡陡弯多，限速慢行；全免费</td></tr>
+          <tr><td>舟山新城 → 朱家尖大青山</td><td class="num">约 30 km</td><td class="num">40–50 min</td><td>过朱家尖跨海大桥</td></tr>
+          <tr><td>大青山环岛公路</td><td class="num">18 km</td><td class="num">1–2 h</td><td>单向行驶，限速 30 km/h，不可掉头</td></tr>
+          <tr><td><strong>朱家尖 → 奉化</strong></td><td class="num">约 200 km</td><td class="num">2.5–3 h</td><td>甬舟高速 → 宁波绕城 → 甬金高速</td></tr>
+          <tr><td>奉化城区 → 岩头古村</td><td class="num">约 25 km</td><td class="num">35–40 min</td><td>途经溪口镇</td></tr>
+          <tr><td><strong>岩头古村 → 上海</strong></td><td class="num">约 250 km</td><td class="num">3.5–4 h</td><td>甬金 → 宁波绕城 → 沈海 → 杭州湾大桥 → 沪昆</td></tr>
+          <tr><td>马目山 → 舟山新城（酒店）</td><td class="num">约 45 km</td><td class="num">40–50 min</td><td>下山夜路，无路灯，慢行</td></tr>
+          <tr class="total"><td>全程合计</td><td class="num">约 900 km</td><td class="num">—</td><td>3 天 2 晚</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 预算 ============ -->
+  <section>
+    <h2 class="sec">门票与用车预算<span>3 人（孩子 1.4 m 以上按成人票）</span></h2>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>项目</th><th>单价</th><th>小计</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>云顶仙乡 · 云顶公路</td><td class="num">免费</td><td class="num">0 元</td><td>全年开放，无需预约，观景台/停车全免费</td></tr>
+          <tr><td>朱家尖大青山国家公园</td><td class="num">100 元/人</td><td class="num">300 元</td><td>1.2–1.5 m 半价；建议提前 1 天线上购票（实名检票）</td></tr>
+          <tr><td>奉化岩头古村</td><td class="num">免费</td><td class="num">0 元</td><td>古村街区免费；漂流等体验项目另计</td></tr>
+          <tr><td>舟山跨海大桥（金塘大桥）</td><td class="num">110 元/车·次</td><td class="num">220 元</td><td>进岛、出岛各收一次；ETC 95 折</td></tr>
+          <tr><td>其余高速过路费</td><td class="num">—</td><td class="num">约 330 元</td><td>杭州湾跨海大桥 + 杭绍甬 + 甬金 + 宁波绕城等</td></tr>
+          <tr><td>油费</td><td class="num">约 0.6 元/km</td><td class="num">约 490 元</td><td>全程约 820 km</td></tr>
+          <tr><td>停车费</td><td class="num">—</td><td class="num">约 0–50 元</td><td>云顶仙乡/大青山/岩头古村/酒店基本免费</td></tr>
+          <tr class="total"><td>交通 + 门票合计</td><td class="num">—</td><td class="num">约 1,340–1,390 元</td><td>不含食宿；餐饮按 2 大 1 小约 250 元/天估算，3 天约 750 元</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 避坑 ============ -->
+  <section>
+    <h2 class="sec">中秋避坑 · 行车安全 · 亲子提示</h2>
+    <div class="tips">
+      <div class="tip warn">
+        <h4>🚗 行车安全（云顶公路是重点）</h4>
+        <ul>
+          <li>云顶公路坡度大、弯道多，<strong>不建议新手司机</strong>驾驶；连续下坡用低档位控速，少踩刹车</li>
+          <li>大青山环岛公路单向通行，错过观景台没有掉头口，务必提前减速</li>
+          <li>舟山跨海大桥横风大、限速 100 km/h，雨天雾天进一步减速</li>
+          <li>云顶公路部分路段无便利店，出发前备足水与零食</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <h4>🎑 中秋假期特别提醒</h4>
+        <ul>
+          <li><strong>中秋高速不免费</strong>，过路费按正常标准准备，ETC 有 95 折</li>
+          <li>9/25 上午出城高峰 → 06:30 前出发最稳</li>
+          <li>9/27 下午返程高峰 → 12:00 前离奉化，杭州湾大桥是瓶颈</li>
+          <li>大青山实名检票，建议提前一天线上购票；节假日 16:15 停止入园</li>
+          <li>云顶仙乡节假日车流较多，热门打卡点（拱琼台/仰天碗）可能排队</li>
+        </ul>
+      </div>
+      <div class="tip kid">
+        <h4>👦 带孩子实用提示</h4>
+        <ul>
+          <li><strong>晕车贴/晕车药必备</strong>——云顶公路与大青山环岛路都是连续发卡弯</li>
+          <li>海边紫外线强、风力大：防晒衣、遮阳帽、墨镜、防风外套</li>
+          <li>大青山里沙沙滩可玩水，但礁石区湿滑，注意潮汐，勿久留</li>
+          <li>大青山景区内无充电桩，电车务必提前充满电</li>
+          <li>备好车载娱乐（离线动画/音频），岛内隧道群信号会断续</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 优化建议 ============ -->
+  <section>
+    <h2 class="sec">优化建议与应急预案<span>① 已落表 ｜ ②③ 待你确认后同步主表</span></h2>
+
+    <div class="planb" style="margin-bottom:18px">
+      <div class="pb-item">
+        <h4>① Day 1 的红线已从「日落」换成「下山时刻」 <span class="verdict v-yes">已按此调整</span></h4>
+        <p>既然日落不是必达项，D1 的约束就能整体后移：目标从「16:50 前抵达马目山」改为「<strong>17:50 前启动下山</strong>」。收益有两个——云顶仙乡的可用时间从 2.5 小时放宽到 3 小时（<strong>云顶问茶不必砍</strong>），下山时还留着暮光，把 D1 最大的风险（44 km 无路灯盘山路）压了下来。<strong>唯一要守住的就是 17:50 这个时刻。</strong></p>
+      </div>
+      <div class="pb-item">
+        <h4>② Day 2 提前 45 分钟出园、提前转场 <span class="verdict v-warn">待确认</span></h4>
+        <p>把大青山出园从 13:30 提前到 <strong>13:00</strong>，午餐后 <strong>14:00 出发</strong>（原 14:45）去奉化。理由：中秋假期第二天下午，朱家尖出岛方向（经舟山本岛 → 金塘大桥）同样会积压。早走 45 分钟，抵奉化时间可从 18:00 拉到 <strong>17:15</strong>，晚饭与休息都更从容。<span style="color:#c2632a">采纳后主表 Day 2 的 13:30 / 14:45 / 18:00 三处需同步前移。</span></p>
+      </div>
+      <div class="pb-item">
+        <h4>③ Day 3 把返程缓冲拉出来 <span class="verdict v-warn">待确认</span></h4>
+        <p>现方案 12:00 出发、16:30 到上海，缓冲约 1 小时 13 分。中秋末日杭州湾跨海大桥不可预测。<strong>建议岩头古村压到 2 小时（08:10–10:10）</strong>，10:30 到溪口吃面，<strong>11:30 就出发</strong>，把缓冲拉大到 1 小时 40 分以上。<span style="color:#c2632a">采纳后主表 Day 3 的 08:10–10:40 / 11:00–11:50 / 12:00 三处需同步前移。</span></p>
+      </div>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:0 0 10px 3px">云顶公路走法与唯一红线</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>时点</th><th>位置</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="num">13:30 起</td><td>云顶问茶（东段起点）</td><td>海拔 478 m，百亩茶园随山脊铺展、常有云海。日落松绑后不再需要弃点，<strong>从最东端按顺序往西走全即可</strong></td></tr>
+          <tr><td class="num">沿途</td><td>拱琼台 → 宵彩峰 → 狮子岩</td><td>心形草坪地标、451 m 观景台、天然豁口远眺北仑，各停 20–25 分钟</td></tr>
+          <tr><td class="num">16:30</td><td>仰天碗</td><td>海拔约 380 m，俯瞰定海半城半海。这是离开中段的最后一个点位</td></tr>
+          <tr><td class="num">17:20</td><td><strong>马目山风车公路</strong></td><td>本岛最西端，16 座风车 + 远眺舟岱大桥。日落 17:47 —— 顺路可选，不强求</td></tr>
+          <tr><td class="num">17:50</td><td><strong>红线：启动下山</strong></td><td>触发条件：若 16:30 仍未离开仰天碗，<strong>跳过剩余点位直奔马目山</strong>，确保天黑前下到山脚</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:26px 0 10px 3px">三个隐藏风险</div>
+    <div class="tips">
+      <div class="tip warn">
+        <h4>🍜 溪口牛肉面可能排队</h4>
+        <ul>
+          <li>阿峰牛肉干面饭点人流大，老板娘按手写单子叫号，11:00–11:50 这 50 分钟偏紧</li>
+          <li>对策：改吃<strong>兄弟牛肉面</strong>（等位压力小），或把到店时间提前到 10:30</li>
+          <li>别指望蒋永峰 / 无名牛肉馆——通常上午卖完即关</li>
+        </ul>
+      </div>
+      <div class="tip warn">
+        <h4>🛏️ 11:00 到酒店拿不到房卡</h4>
+        <ul>
+          <li>舟山环球酒店标准入住为 14:00，11:00 只能寄行李</li>
+          <li>对策：<strong>提前致电说明 11:00 到店</strong>，当天先办手续、寄存行李，晚上回来直接进房</li>
+          <li>这样下午 13:00 就能轻装出发，不用为了等房间而在大堂耗着</li>
+        </ul>
+      </div>
+      <div class="tip warn">
+        <h4>🌙 夜间盘山路 + 疲劳驾驶</h4>
+        <ul>
+          <li>D1 是全程最重的一天：270 km 高速 + 44 km 盘山 + 45 km 返程，同一人驾驶</li>
+          <li>云顶公路夜间无路灯，松绑后 17:50 下山，但西段仍有约半小时在暮光中行驶</li>
+          <li>对策：<strong>副驾提前设定好路线</strong>；若当天体力或天气不理想，<strong>17:30 前主动下山</strong>——安全冗余比一张日落照片值钱</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:26px 0 10px 3px">三个低成本加餐（顺路、免费或近免费）</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>加餐</th><th>安排位置</th><th>成本</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td><strong>提前线上买大青山门票</strong> <span class="tag t-green">优先做</span></td><td>25 日晚在酒店</td><td class="num">100 元/人</td><td>景区实名检票，节假日现场排队购票很耗时；<strong>16:15 停止入园</strong></td></tr>
+          <tr><td><strong>观音法界外观</strong></td><td>26 日出朱家尖途中</td><td class="num">免费（不进园）</td><td>世界上唯一以观音为原型的佛教建筑，主圣坛高 91.9 m。不进去只拍照即可；进园需 90 元 + 约 1.5 小时</td></tr>
+          <tr><td><strong>县江如意桥</strong></td><td>26 日晚饭后 15 分钟</td><td class="num">免费</td><td>奉化城区，双幅桥身如玉如意，夜晚流光溢彩，散步消食刚好</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="waypts" style="margin-top:16px">
+      <b>最后一个反向建议：</b>云顶公路（盘山环海）与大青山环岛公路（盘山环海）本质是<strong>同一类体验</strong>，连着两天容易审美疲劳。建议让 Day 2 更侧重「沙滩 + 渔村 + 五沙连环」——在里沙沙滩多待一会儿、把筲箕湾渔村走透，与 Day 1 的「山巅云海 + 风车」形成区分，而不是再刷一次盘山路。<br>
+      <span style="color:#7b8fa1">※ 大青山实用提示：青山峰顶需换乘景区免费小巴（08:00–16:30，整点发车），私家车到不了山顶；里沙沙滩沙质最细，人流比南沙少一半。</span>
+    </div>
+  </section>
+
+  <!-- ============ 奉化景点池 ============ -->
+  <section>
+    <h2 class="sec">奉化景点备选池<span>按你的实际动线筛选 · 含门票与建议时长</span></h2>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:0 0 10px 3px">一、27 日上午可用（溪口方向，返沪顺路）</div>
+    <div class="card" style="margin-bottom:18px">
+      <table class="data">
+        <thead><tr><th>景点</th><th>位置</th><th>门票</th><th>建议时长</th><th>特点与取舍</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>岩头古村</strong> <span class="tag t-green">当前方案</span></td>
+            <td>溪口镇西南，距溪口约 11 km</td>
+            <td class="num">免费</td>
+            <td class="num">2.5–3 h</td>
+            <td>600 余年民国古村，岩溪穿村、广济桥为地标；石板路平缓好走，停车免费。最贴合你「原生态村落」的偏好</td>
+          </tr>
+          <tr>
+            <td><strong>亭下湖</strong></td>
+            <td>溪口镇 · 亭下湖风景区</td>
+            <td class="num">免费</td>
+            <td class="num">1.5–2 h</td>
+            <td>宁波人私藏的「小阿勒泰」：草甸 + 碧蓝湖水 + 连绵青山，7:30–17:30。它在溪口西北，与岩头古村（西南）不同方向，<strong>二选一更从容</strong></td>
+          </tr>
+          <tr>
+            <td><strong>栖霞坑古道 / 栖霞坑村</strong></td>
+            <td>溪口镇 · 四明山中</td>
+            <td class="num">免费</td>
+            <td class="num">2–3 h</td>
+            <td>千年古村，王羲之后裔聚居地，「唐诗之路」原生态古道，溪流与竹林夹道。徒步强度较大，3 小时只够走村口一段；<strong>9 月底红枫未红，仍是满山翠绿</strong></td>
+          </tr>
+          <tr>
+            <td><strong>斑竹村</strong></td>
+            <td>溪口镇 · 徐霞客古道</td>
+            <td class="num">免费</td>
+            <td class="num">1–1.5 h</td>
+            <td>千年古村紧挨溪流，人少清静，可与亭下湖串成一线，节奏最松</td>
+          </tr>
+          <tr>
+            <td><strong>雪窦山</strong></td>
+            <td>溪口镇</td>
+            <td class="num">150 元（含景交）</td>
+            <td class="num">4–5 h</td>
+            <td>5A 山水顶配：三隐潭 → 千丈岩（落差 186 m）→ 妙高台 → 雪窦寺弥勒大佛。塞进 3 小时窗口很勉强，且私家车须停游客中心换景交、12:30 才能出发，返程余量归零</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:0 0 10px 3px">二、离酒店近（可放 26 日傍晚散步，或 27 日一早）</div>
+    <div class="card" style="margin-bottom:18px">
+      <table class="data">
+        <thead><tr><th>景点</th><th>位置</th><th>门票</th><th>建议时长</th><th>特点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>滕头生态旅游区</strong></td>
+            <td>奉化城北约 6 km</td>
+            <td class="num">免费</td>
+            <td class="num">1.5–2 h</td>
+            <td>园林式乡村、青山碧水，有石窗艺术馆与采摘，8:00–17:00。<strong>离酒店最近</strong>，玩完顺路回城区就能吃上牛肉面</td>
+          </tr>
+          <tr>
+            <td><strong>县江如意桥</strong></td>
+            <td>奉化城区</td>
+            <td class="num">免费</td>
+            <td class="num">0.5 h</td>
+            <td>2026 年 5 月新开放，双幅桥身横跨县江、远看形似玉如意；夜晚流光溢彩，很适合 26 日晚饭后散步消食</td>
+          </tr>
+          <tr>
+            <td><strong>奉化城市文化中心</strong></td>
+            <td>奉化城区</td>
+            <td class="num">免费</td>
+            <td class="num">0.5–1 h</td>
+            <td>前身是 1986 年建成的热电厂，复古工业风与现代文化交融</td>
+          </tr>
+          <tr>
+            <td><strong>弥勒圣坛</strong></td>
+            <td>溪口镇大慈路 1 号</td>
+            <td class="num">60 元（金顶观景 30 元）</td>
+            <td class="num">1–1.5 h</td>
+            <td>2025 年新开的佛教文化地标，建筑本身可看，离溪口镇区近</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-size:14.5px;font-weight:700;color:#0d3b56;margin:0 0 10px 3px">三、这次不建议安排</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>景点</th><th>位置</th><th>门票</th><th>不建议的原因</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>天妃湖旅游度假区</strong></td>
+            <td>奉化东南滨海 · 裘村镇</td>
+            <td class="num">免费</td>
+            <td>13.14 km 环湖步道、吉尼斯认证的「海上最长可行车浮桥」、橘子海日落，本身很值得去——但它在你返沪方向的<strong>反侧</strong>，往返至少多绕 1 小时以上。除非单独给它安排半天，这次先放弃</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 行前清单 ============ -->
+  <section>
+    <h2 class="sec">行前清单</h2>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>类别</th><th>物品</th></tr></thead>
+        <tbody>
+          <tr><td><strong>证件</strong></td><td>身份证（酒店入住 + 景区实名检票）、驾驶证、行驶证、车辆保险单</td></tr>
+          <tr><td><strong>车辆</strong></td><td>ETC 余额充足、胎压、备胎与工具、玻璃水、充电线、车载支架</td></tr>
+          <tr><td><strong>儿童</strong></td><td>晕车贴/晕车药、防晒霜、遮阳帽、防风外套、换洗衣物（玩沙会湿）、零食与水壶</td></tr>
+          <tr><td><strong>其他</strong></td><td>充电宝、雨具、常用药、湿巾、少量现金（部分农家乐）</td></tr>
+          <tr><td><strong>提前预订</strong></td><td>两晚酒店确认单、大青山线上门票、雪窦山门票（若选方案 B）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    行程单生成于 2026-09-23（D1 已按「酒店休整 → 云顶仙乡 → 马目山收尾」调整，日落已解除硬约束）｜ 里程与车程为高德实测参考值，实际以当日路况为准<br>
+    9/25 马目山日落 <strong>17:47</strong>、民用暮光结束 18:10（来源 sunrise-sunset.org，坐标 30.10°N / 121.95°E，北京时间）｜ 景区电话：大青山 0580-6031226
+  </footer>
+
+</div>
+</body>
+</html>
