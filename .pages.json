@@ -1,6 +1,14 @@
 {
   "pages": [
     {
+      "slug": "midnight-before-arrival",
+      "title": "午夜降临前抵达 · 旅行地图",
+      "desc": "刘子超 · 中欧漫游：夏（火车）与冬（自驾）两段行程",
+      "url": "https://poloraul.github.io/web-pages/midnight-before-arrival/",
+      "published_at": "2026-10-01T00:34:36+08:00",
+      "updated_at": "2026-10-01T00:34:36+08:00"
+    },
+    {
       "slug": "blood-and-honey-balkan",
       "title": "血与蜜之地 · 旅行地图",
       "desc": "刘子超 · 穿越巴尔干的旅程：8 国 17 站，的里雅斯特 → 雅典",
