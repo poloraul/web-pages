@@ -1,6 +1,14 @@
 {
   "pages": [
     {
+      "slug": "along-the-monsoon",
+      "title": "沿着季风的方向 · 旅行地图",
+      "desc": "刘子超 · 从印度到东南亚：九章、九段路",
+      "url": "https://poloraul.github.io/web-pages/along-the-monsoon/",
+      "published_at": "2026-10-01T00:39:19+08:00",
+      "updated_at": "2026-10-01T00:39:19+08:00"
+    },
+    {
       "slug": "lost-satellite",
       "title": "失落的卫星 · 旅行地图",
       "desc": "刘子超 · 深入中亚大陆：五个「斯坦」、五部行程",
