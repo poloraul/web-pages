@@ -1,6 +1,14 @@
 {
   "pages": [
     {
+      "slug": "lost-satellite",
+      "title": "失落的卫星 · 旅行地图",
+      "desc": "刘子超 · 深入中亚大陆：五个「斯坦」、五部行程",
+      "url": "https://poloraul.github.io/web-pages/lost-satellite/",
+      "published_at": "2026-10-01T00:36:58+08:00",
+      "updated_at": "2026-10-01T00:36:58+08:00"
+    },
+    {
       "slug": "midnight-before-arrival",
       "title": "午夜降临前抵达 · 旅行地图",
       "desc": "刘子超 · 中欧漫游：夏（火车）与冬（自驾）两段行程",
